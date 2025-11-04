@@ -22,4 +22,17 @@ The project demonstrates how machine learning can personalize ad content dynamic
 
 ---
 
-## 🧩 Project Structure
+## 🖥️ Project Output
+
+Here’s how the web interface looks when running locally:
+
+![AI Ad Recommendation System Screenshot](static/output_preview.png)
+
+---
+
+## 🚀 How to Run Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/NileshGupta123/AI-Ad-Recommendation.git
+
