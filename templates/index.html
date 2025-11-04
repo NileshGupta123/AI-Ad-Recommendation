@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Ad Recommendation</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(to bottom, #eef3f8, #dce4ec);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 40px;
+            color: #0d1b2a;
+            font-size: 2rem;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        input {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            color: green;
+            margin-top: 20px;
+        }
+
+        .result-box {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 25px;
+            background: #f4fff4;
+            border: 2px solid #b8e6b8;
+            border-radius: 10px;
+        }
+
+        .image-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .ad-banner {
+            max-width: 420px;
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            object-fit: cover;
+        }
+
+
+        .features {
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 900px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 250px;
+        }
+
+        .feature-card h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 50px;
+            background: #0d1b2a;
+            color: white;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI-Powered Ad Recommendation System</h1>
+    <form action="/predict" method="post">
+        <input type="text" name="feature1" placeholder="Enter Age" required>
+        <input type="text" name="feature2" placeholder="Time Spent on Website (mins)" required>
+        <input type="text" name="feature3" placeholder="Interest Score (1–10)" required>
+        <input type="text" name="feature4" placeholder="Ad Duration (secs)" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result-box">
+            ✅ <strong>{{ prediction_text }}</strong>
+        </div>
+    {% endif %}
+
+    <div class="image-section">
+        <img src="{{ url_for('static', filename='ad_banner.png') }}" alt="AI Ad Banner" class="ad-banner">
+    </div>
+    
+
+    <div class="features">
+        <div class="feature-card">
+            <h3>🎯 Personalized Ads</h3>
+            <p>Uses user behavior and profile data to recommend the most engaging ad type.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🧠 Machine Learning</h3>
+            <p>Built using Logistic Regression model trained on simulated user data.</p>
+        </div>
+        <div class="feature-card">
+            <h3>⚡ Real-Time Prediction</h3>
+            <p>Provides instant recommendations with just one click — powered by Flask.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 AI Ad Recommendation System | Created by Nilesh Gupta</p>
+    </footer>
+</body>
+</html>
